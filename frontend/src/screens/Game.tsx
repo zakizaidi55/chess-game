@@ -23,10 +23,11 @@ export const Game = () => {
         }
         socket.onmessage = (event) => {
             const message = JSON.parse(event.data);
-
+            console.log("message " , message);
             switch (message.type) {
                 case INIT_GAME:
                     setBoard(chess.board());
+                    console.log("Initialise the game");
                     break;
                 case MOVE:
                     const move = message.payload;
